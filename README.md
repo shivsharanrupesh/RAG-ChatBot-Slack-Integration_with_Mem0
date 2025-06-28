@@ -42,3 +42,53 @@
 ```python
 memory = Memory(dir=MEMORY_DIR)  # File-based session storage
 
+## Core Functions
+
+| Function | Description |
+|----------|-------------|
+| `get_session_history(session_id, max_turns=10)` | Retrieves last N Q&A pairs for context |
+| `update_session_history(session_id, question, answer)` | Appends new interaction to history |
+| `answer_question(question, session_id)` | Full RAG pipeline execution |
+
+## RAG Pipeline
+
+1. Load chat history from mem0
+2. Semantic search over vectorstore for relevant chunks
+3. Compose context (history + retrieved chunks)
+4. [Placeholder for LLM answer generation]
+5. Update session history
+6. Log process details and metrics
+
+---
+
+## `app/api.py` - FastAPI Backend
+
+### Endpoints
+
+| Endpoint | Method | Description |
+|----------|--------|-------------|
+| `/health` | GET | Service health check |
+| `/ask` | POST | Main Q&A endpoint (`{question, session_id}`) |
+
+### Features
+
+- Full request/response logging
+- Error handling and metrics collection
+- Integration point for Slack bot and other frontends
+
+---
+
+## `slack_bot.py` - Slack Integration
+
+### Key Features
+
+- Direct message and channel mention handling
+- Feedback collection via emoji reactions (👍/👎)
+- Comprehensive interaction logging
+
+### Event Handlers
+
+```python
+@app.event("app_mention")  # Channel mentions
+@app.event("message")     # Direct messages
+@app.event("reaction_added")  # Feedback collection
