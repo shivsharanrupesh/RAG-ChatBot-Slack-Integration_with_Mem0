@@ -59,35 +59,3 @@ memory = Memory(dir=MEMORY_DIR)  # File-based session storage
 5. Update session history
 6. Log process details and metrics
 
-
-## 2. `app/api.py` - FastAPI Backend
-
-### Endpoints
-
-| Endpoint | Method | Description |
-|----------|--------|-------------|
-| `/health` | GET | Service health check |
-| `/ask` | POST | Main Q&A endpoint (`{question, session_id}`) |
-
-### Features
-
-- Full request/response logging
-- Error handling and metrics collection
-- Integration point for Slack bot and other frontends
-
----
-
-## `slack_bot.py` - Slack Integration
-
-### Key Features
-
-- Direct message and channel mention handling
-- Feedback collection via emoji reactions (👍/👎)
-- Comprehensive interaction logging
-
-### Event Handlers
-
-```python
-@app.event("app_mention")  # Channel mentions
-@app.event("message")     # Direct messages
-@app.event("reaction_added")  # Feedback collection
