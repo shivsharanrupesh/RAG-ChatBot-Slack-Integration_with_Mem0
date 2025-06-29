@@ -59,9 +59,8 @@ memory = Memory(dir=MEMORY_DIR)  # File-based session storage
 5. Update session history
 6. Log process details and metrics
 
----
 
-## `app/api.py` - FastAPI Backend
+## 2. `app/api.py` - FastAPI Backend
 
 ### Endpoints
 
