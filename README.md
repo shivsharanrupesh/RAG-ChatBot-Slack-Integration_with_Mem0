@@ -132,3 +132,13 @@ root/               # Contains:
 └── logs/           # Auto-generated log files.
 
 
+### Summary Table
+
+| Requirement                                | Where/How Handled                          |
+|--------------------------------------------|--------------------------------------------|
+| Incremental PDF ingestion, deduplication  | `ingest.py` with hash check + ChromaDB     |
+| Session/chat memory (file-based, per user) | `rag_chain.py` with mem0                   |
+| Robust logging, error handling, LLM metrics| All files, via Python `logging`             |
+| Slack bot with feedback capture            | `slack_bot.py`, event handlers, logging    |
+| API backend                                | `api.py` (FastAPI)                         |
+| Requirements, README, structure            | `requirements.txt`, `README.md`, standard folder layout |
