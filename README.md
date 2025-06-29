@@ -92,4 +92,43 @@ Lets users talk to your chatbot in Slack (DM or channel), and collects user feed
 - `@app.event("reaction_added")` — Logs reactions (user feedback).  
 
 **Logging:**  
-Tracks all user interactions, answers, latency, and feedback for analytics.  
+Tracks all user interactions, answers, latency, and feedback for analytics.
+
+
+### 5. Logging, Error Handling, LLM Evaluation Metrics  
+- **Logging:**  
+  - Every file uses `logging` — tracks major steps, successes, errors, and key metrics (e.g., response latency, chunk count, sources cited).  
+- **Error Handling:**  
+  - Errors are caught and logged gracefully; never crash the pipeline.  
+- **LLM Metrics:**  
+  - Latency, retrieval size, etc., are logged for continuous improvement analysis.  
+
+---
+
+### 6. `requirements.txt` & `README.md`  
+#### `requirements.txt`  
+- Lists dependencies:  
+  - `mem0`, `Chroma`, `Cohere`, `FastAPI`, `Slack Bolt`, etc.  
+
+#### `README.md`  
+- **Contents:**  
+  - Project structure and quickstart guide.  
+  - Instructions for adding PDFs (`data/` directory).  
+  - *(Expandable sections for memory, logging, feedback, or pipeline diagrams.)*  
+
+---
+
+### 7. Directory Structure  
+```plaintext
+data/               # Place your PDFs here.  
+memory_store/       # mem0 stores per-user session histories (one file per user/session).  
+app/                # Code for ingestion, RAG chain, and API.  
+├── api.py          # FastAPI backend.  
+├── (other modules)  
+root/               # Contains:  
+├── slack_bot.py    # Slack integration.  
+├── requirements.txt  
+├── README.md  
+└── logs/           # Auto-generated log files.
+
+
