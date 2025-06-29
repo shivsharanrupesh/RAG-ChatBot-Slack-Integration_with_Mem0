@@ -59,8 +59,10 @@ memory = Memory(dir=MEMORY_DIR)  # File-based session storage
 5. Update session history
 6. Log process details and metrics
 
-## 3. `app/api.py` — FastAPI Backend  
-**Purpose:**  
+## 3. `app/api.py` — FastAPI Backend
+
+**Purpose:**
+
 Exposes your AI Q&A as a web service for Slack (or any frontend).  
 
 **Key Functions:**  
@@ -72,8 +74,10 @@ Exposes your AI Q&A as a web service for Slack (or any frontend).
 - All requests and errors are logged for observability.  
 
 
-## 4. `slack_bot.py` — Slack Bot Integration & Feedback Capture  
-**Purpose:**  
+## 4. `slack_bot.py` — Slack Bot Integration & Feedback Capture
+
+**Purpose:**
+
 Lets users talk to your chatbot in Slack (DM or channel), and collects user feedback via emoji reactions.  
 
 **Key Functions:**  
