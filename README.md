@@ -61,6 +61,7 @@ memory = Memory(dir=MEMORY_DIR)  # File-based session storage
 
 
 ### 3. `app/api.py` — FastAPI Backend  
+
 **Purpose:**  
 Exposes your AI Q&A as a web service for Slack (or any frontend).  
 
